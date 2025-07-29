@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "name": "bfhl-api-bajaj-finserv",
   "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
     {
       "src": "server/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["shared/**"]
+        "includeFiles": ["dist/**"]
       }
     }
   ],
@@ -17,12 +23,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "/dist/index.html"
     }
-  ],
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
