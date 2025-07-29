@@ -1,0 +1,133 @@
+Build and host a POST REST API at /bfhl that takes an array input and returns:
+
+is_success: true/false
+
+user_id: full_name_ddmmyyyy (lowercase)
+
+email: your_email
+
+roll_number: your_college_roll
+
+even_numbers: string array of even numbers
+
+odd_numbers: string array of odd numbers
+
+alphabets: array of uppercase alphabets
+
+special_characters: array of special characters
+
+sum: total of numbers as a string
+
+concat_string: concatenated alphabets in reverse order with alternating caps
+
+Tech Stack:
+Node.js only
+
+Hosting:
+Any provider (recommended: Vercel, Railway, Render)
+
+Push code to a public GitHub repository
+
+API Route:
+Method: POST
+
+Route: /bfhl
+
+Expected success status code: 200
+
+Example: https://testbfhl.herokuapp.com/bfhl
+
+Requirements:
+user_id must be in format full_name_ddmmyyyy, all lowercase
+
+Return all numbers in string format
+
+Handle exceptions gracefully
+
+Follow best practices
+
+Submission:
+Host the API
+
+Submit the /bfhl endpoint via the provided form
+
+Fastest valid submissions will be considered
+
+Example A
+Request:
+
+json
+Copy
+Edit
+{
+  "data": ["a","1","334","4","R", "$"]
+}
+Response:
+
+json
+Copy
+Edit
+{
+  "is_success": true,
+  "user_id": "john_doe_17091999",
+  "email": "john@xyz.com",
+  "roll_number": "ABCD123",
+  "odd_numbers": ["1"],
+  "even_numbers": ["334", "4"],
+  "alphabets": ["A", "R"],
+  "special_characters": ["$"],
+  "sum": "339",
+  "concat_string": "Ra"
+}
+Example B
+Request:
+
+json
+Copy
+Edit
+{
+  "data": ["2","a", "y", "4", "&", "-", "*", "5","92","b"]
+}
+Response:
+
+json
+Copy
+Edit
+{
+  "is_success": true,
+  "user_id": "john_doe_17091999",
+  "email": "john@xyz.com",
+  "roll_number": "ABCD123",
+  "odd_numbers": ["5"],
+  "even_numbers": ["2","4","92"],
+  "alphabets": ["A", "Y", "B"],
+  "special_characters": ["&", "-", "*"],
+  "sum": "103",
+  "concat_string": "ByA"
+}
+Example C
+Request:
+
+json
+Copy
+Edit
+{
+  "data": ["A","ABcD","DOE"]
+}
+Response:
+
+json
+Copy
+Edit
+{
+  "is_success": true,
+  "user_id": "john_doe_17091999",
+  "email": "john@xyz.com",
+  "roll_number": "ABCD123",
+  "odd_numbers": [],
+  "even_numbers": [],
+  "alphabets": ["A","ABCD","DOE"],
+  "special_characters": [],
+  "sum": "0",
+  "concat_string": "EoDdCbAa"
+}
