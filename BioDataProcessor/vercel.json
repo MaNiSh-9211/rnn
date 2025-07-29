@@ -1,30 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "server/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**", "public/**"]
-      }
-    }
+    { "src": "server/index.ts", "use": "@vercel/node" },
+    { "src": "client/**", "use": "@vercel/static-build" }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=3600, stale-while-revalidate"
-      }
-    }
-  ],
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  }
+    { "src": "/api/(.*)", "dest": "server/index.ts" },
+    { "src": "/(.*)", "dest": "client/$1" }
+  ]
 }
