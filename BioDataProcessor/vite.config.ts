@@ -34,5 +34,5 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-        base: process.env.VITR_BASE_PATH || "/BioDataProcessor",
+        base: process.env.VITE_BASE_PATH || "/BioDataProcessor",
 });
