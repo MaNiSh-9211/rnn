@@ -2,16 +2,21 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/index.mjs",
-      "use": "@vercel/node"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
+  "scripts": {
+    "build": "npm run build",
+    "start": "npm run start"
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/index.mjs"
+      "dest": "/"
     }
-  ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  ]
 }
